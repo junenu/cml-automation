@@ -1,0 +1,251 @@
+testbed:
+  name: 'BGP '
+devices:
+  terminal_server:
+    os: linux
+    type: server
+    credentials:
+      default:
+        username: change_me
+        password: change_me
+    connections:
+      cli:
+        protocol: ssh
+        ip: 10.111.23.23
+        port: 22
+  C-RT1:
+    os: ios
+    type: router
+    platform: iosv
+    credentials:
+      default:
+        username: cisco
+        password: cisco
+    connections:
+      defaults:
+        class: unicon.Unicon
+      a:
+        protocol: telnet
+        proxy: terminal_server
+        command: open /BGP /C-RT1/0
+  C-RT2:
+    os: ios
+    type: router
+    platform: iosv
+    credentials:
+      default:
+        username: cisco
+        password: cisco
+    connections:
+      defaults:
+        class: unicon.Unicon
+      a:
+        protocol: telnet
+        proxy: terminal_server
+        command: open /BGP /C-RT2/0
+  C-RT3:
+    os: iosxe
+    type: router
+    platform: csr1000v
+    credentials:
+      default:
+        username: cisco
+        password: cisco
+    connections:
+      defaults:
+        class: unicon.Unicon
+      a:
+        protocol: telnet
+        proxy: terminal_server
+        command: open /BGP /C-RT3/0
+  P-RT1:
+    os: ios
+    type: router
+    platform: iosv
+    credentials:
+      default:
+        username: cisco
+        password: cisco
+    connections:
+      defaults:
+        class: unicon.Unicon
+      a:
+        protocol: telnet
+        proxy: terminal_server
+        command: open /BGP /P-RT1/0
+  P-RT2:
+    os: ios
+    type: router
+    platform: iosv
+    credentials:
+      default:
+        username: cisco
+        password: cisco
+    connections:
+      defaults:
+        class: unicon.Unicon
+      a:
+        protocol: telnet
+        proxy: terminal_server
+        command: open /BGP /P-RT2/0
+  ISP1:
+    os: ios
+    type: router
+    platform: iosv
+    credentials:
+      default:
+        username: cisco
+        password: cisco
+    connections:
+      defaults:
+        class: unicon.Unicon
+      a:
+        protocol: telnet
+        proxy: terminal_server
+        command: open /BGP /ISP1/0
+  ISP2:
+    os: ios
+    type: router
+    platform: iosv
+    credentials:
+      default:
+        username: cisco
+        password: cisco
+    connections:
+      defaults:
+        class: unicon.Unicon
+      a:
+        protocol: telnet
+        proxy: terminal_server
+        command: open /BGP /ISP2/0
+  C-RT0:
+    os: ios
+    type: router
+    platform: iosv
+    credentials:
+      default:
+        username: cisco
+        password: cisco
+    connections:
+      defaults:
+        class: unicon.Unicon
+      a:
+        protocol: telnet
+        proxy: terminal_server
+        command: open /BGP /C-RT0/0
+topology:
+  C-RT1:
+    interfaces:
+      Loopback0:
+        type: loopback
+      GigabitEthernet0/0:
+        link: e3913822-4107-4d87-9bf8-e3ae9ab5a513
+        type: ethernet
+      GigabitEthernet0/1:
+        link: 3524e277-f50c-4357-bac4-21fd8687e114
+        type: ethernet
+      GigabitEthernet0/2:
+        type: ethernet
+      GigabitEthernet0/3:
+        type: ethernet
+  C-RT2:
+    interfaces:
+      Loopback0:
+        type: loopback
+      GigabitEthernet0/0:
+        link: c67f16ba-59a2-4a1d-bfc0-9efecaa42df6
+        type: ethernet
+      GigabitEthernet0/1:
+        link: 3611dfb5-2806-4c24-ab7d-3a4c4e803392
+        type: ethernet
+      GigabitEthernet0/2:
+        type: ethernet
+      GigabitEthernet0/3:
+        type: ethernet
+  C-RT3:
+    interfaces:
+      Loopback0:
+        type: loopback
+      GigabitEthernet1:
+        link: 8ee59747-0e71-46e7-b858-87d71013ff69
+        type: ethernet
+      GigabitEthernet2:
+        link: 806ea3f5-d354-4d83-8a06-08ae53b019b9
+        type: ethernet
+      GigabitEthernet3:
+        type: ethernet
+      GigabitEthernet4:
+        link: a2173b8c-e3cf-44a9-a62c-0adf037786bd
+        type: ethernet
+  P-RT1:
+    interfaces:
+      Loopback0:
+        type: loopback
+      GigabitEthernet0/0:
+        link: 34b4db76-930b-4a02-9297-9f5e6038e845
+        type: ethernet
+      GigabitEthernet0/1:
+        link: e56b2c35-bc82-4a76-9baf-20fd6c881ed5
+        type: ethernet
+      GigabitEthernet0/2:
+        type: ethernet
+      GigabitEthernet0/3:
+        link: 96e406df-1243-48f1-9a2d-daceb1824dcb
+        type: ethernet
+  P-RT2:
+    interfaces:
+      Loopback0:
+        type: loopback
+      GigabitEthernet0/0:
+        link: 3e2b1965-1f9e-4660-9ef6-dc675789112e
+        type: ethernet
+      GigabitEthernet0/1:
+        link: 6eb91f52-ee56-4fea-b5a9-fa30a49dc961
+        type: ethernet
+      GigabitEthernet0/2:
+        type: ethernet
+      GigabitEthernet0/3:
+        link: 96e406df-1243-48f1-9a2d-daceb1824dcb
+        type: ethernet
+  ISP1:
+    interfaces:
+      Loopback0:
+        type: loopback
+      GigabitEthernet0/0:
+        link: 34b4db76-930b-4a02-9297-9f5e6038e845
+        type: ethernet
+      GigabitEthernet0/1:
+        link: 8ee59747-0e71-46e7-b858-87d71013ff69
+        type: ethernet
+      GigabitEthernet0/2:
+        type: ethernet
+      GigabitEthernet0/3:
+        type: ethernet
+  ISP2:
+    interfaces:
+      Loopback0:
+        type: loopback
+      GigabitEthernet0/0:
+        link: 3e2b1965-1f9e-4660-9ef6-dc675789112e
+        type: ethernet
+      GigabitEthernet0/1:
+        link: 806ea3f5-d354-4d83-8a06-08ae53b019b9
+        type: ethernet
+      GigabitEthernet0/2:
+        type: ethernet
+      GigabitEthernet0/3:
+        type: ethernet
+  C-RT0:
+    interfaces:
+      Loopback0:
+        type: loopback
+      GigabitEthernet0/0:
+        link: e3913822-4107-4d87-9bf8-e3ae9ab5a513
+        type: ethernet
+      GigabitEthernet0/1:
+        link: c67f16ba-59a2-4a1d-bfc0-9efecaa42df6
+        type: ethernet
+      GigabitEthernet0/2:
+        type: ethernet
+      GigabitEthernet0/3:
+        type: ethernet
