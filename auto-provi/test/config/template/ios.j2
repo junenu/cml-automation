@@ -1,0 +1,15 @@
+! BGP Configuration
+router bgp {{ bgp.local_as }}
+{% for peer in bgp.peers -%}
+  neighbor {{ peer.neighbor }} remote-as {{ peer.remote_as }}
+{% endfor -%}
+{% for interface in interfaces %}
+! Interface Configuration for {{ interface.name }}
+  interface {{ interface.name }}
+    ip address {{ interface.ip_address }} {{ interface.subnet_mask }}
+{% if interface.enable -%}
+  no shutdown
+{% else -%}
+  shutdown
+{% endif -%}
+{% endfor -%}

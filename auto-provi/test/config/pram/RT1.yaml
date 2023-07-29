@@ -1,0 +1,22 @@
+---
+bgp:
+  local_as: 65000
+  peers:
+    - remote_as: 65000
+      neighbor: 198.51.100.1
+interfaces:
+  - name: loopback 0
+    ip_address: 10.0.4.1
+    subnet_mask: 255.255.255.255
+    enable: true
+  - name: GigabitEthernet 0/1
+    description: "to BGP peer"
+    ip_address: 198.51.100.1
+    subnet_mask: 255.255.255.252
+    enable: true
+  - name: GigabitEthernet 0/0
+    description: "to LAN"
+    ip_address: 203.0.113.1
+    subnet_mask: 255.255.255.0
+    enable: false
+...
