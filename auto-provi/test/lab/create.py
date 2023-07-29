@@ -7,9 +7,9 @@ import sys
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # CML2サーバーの情報
-CML_URL = "https://192.168.10.189"
+CML_URL = "https://"
 CML_USERNAME = "admin"
-CML_PASSWORD = "Veanus77!"
+CML_PASSWORD = "C1sco12345"
 
 # testbedファイルのパス
 TESTBED_FILE = sys.argv[1]
