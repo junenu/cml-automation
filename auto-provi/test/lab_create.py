@@ -12,14 +12,14 @@ CML_USERNAME = "admin"
 CML_PASSWORD = "C1sco12345"
 
 # testbedファイルのパス
-TESTBED_FILE = sys.argv[1]
+TESTBED_FILE = "tb.yaml"
 
 # 作成するラボの名前
-LAB_NAME = sys.argv[2]
+LAB_NAME = sys.argv[1]
 
 # コマンドライン引数をチェック
-if len(sys.argv) != 3:
-    print("Usage: python script.py <testbed_file> <lab_name>")
+if len(sys.argv) != 2:
+    print("Usage: python lab_create.py <lab_name>")
     sys.exit(1)
 
 # テストベッドファイルを読み込む

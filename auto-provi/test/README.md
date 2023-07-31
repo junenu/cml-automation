@@ -2,7 +2,7 @@
 ## lab を作成
 コマンド投入
 ```bash
-(pyats_CML) ainas@mngt:~/pyats_CML/test$ python3 lab/create.py tb.yaml testlab
+(pyats_CML) ainas@mngt:~/pyats_CML/test$ python3 lab_create.py testlab
 terminal_server {'os': 'linux', 'type': 'server', 'credentials': {'default': {'username': 'admin', 'password': 'Veanus77!'}}, 'connections': {'cli': {'protocol': 'ssh', 'ip': '192.168.10.189', 'port': 22}}}
 RT1 {'os': 'ios', 'type': 'router', 'platform': 'iosv', 'credentials': {'default': {'username': 'admin', 'password': 'admin'}}, 'connections': {'defaults': {'class': 'unicon.Unicon'}, 'a': {'protocol': 'telnet', 'proxy': 'terminal_server', 'command': 'open /pyATS-Test/RT1/0'}}}
 RT2 {'os': 'iosxe', 'type': 'router', 'platform': 'csr1000v', 'credentials': {'default': {'username': 'admin', 'password': 'admin'}}, 'connections': {'defaults': {'class': 'unicon.Unicon'}, 'a': {'protocol': 'telnet', 'proxy': 'terminal_server', 'command': 'open /pyATS-Test/RT2/0'}}}
